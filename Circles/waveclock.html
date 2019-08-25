@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Testing</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+setup = () => {
+	createCanvas(500, 500);
+	background(200);
+	strokeWeight(.5);
+	smooth();
+	
+	let centerX = width/2;
+	let centerY = height/2;
+	let radius = 200;
+	let strokeCol = 254;
+
+	for (let ang = 0; ang <= 150; ang += 1) {
+		let rad = radians(ang);
+		
+		let x1 = centerX + (radius * cos(rad));
+		let y1 = centerY + (radius * sin(rad));
+		
+		let opprad = rad + PI;
+		let x2 = centerX + (radius * cos(opprad));
+		let y2 = centerY + (radius * sin(opprad));
+		
+		stroke(strokeCol);
+		line(x1, y1, x2, y2);
+		strokeCol += -1;
+	}
+}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

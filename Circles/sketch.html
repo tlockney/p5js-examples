@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Testing</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+const sketch = (s) => {
+	s.setup = () => {
+		s.createCanvas(600, 600);
+		s.background(255);
+		s.strokeWeight(0.5);
+	
+		let centX = s.width/2;
+		let centY = s.height/2;
+	
+		let turns = 100;
+		let totalRotation = 2880;
+	
+		for (let i = 0; i < turns; i++) {
+			let lastx = -999;
+			let lasty = -999;
+			let radiusNoise = s.random(10);
+			let radius = 10;
+			s.stroke(s.random(20), s.random(50), s.random(70), 80);
+		
+			let startangle = s.int(s.random(360));
+			let endangle = totalRotation/2 + s.int(s.random(totalRotation/2));
+			let anglestep = 5 + s.int(s.random(3));
+		
+			for (let ang = startangle; ang <= endangle; ang += anglestep) {
+				radiusNoise += 0.05;
+				radius += 0.5;
+				let thisRadius = radius + (s.noise(radiusNoise) * 200) - 100;
+				let rad = s.radians(ang);
+				x = centX + (thisRadius * s.cos(rad));
+				y = centY + (thisRadius * s.sin(rad));
+				if (lastx > -999) {
+					s.line(x, y, lastx, lasty);
+				}
+				lastx = x;
+				lasty = y;
+			}
+		}
+	}
+};
+
+let myp5 = new p5(sketch);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

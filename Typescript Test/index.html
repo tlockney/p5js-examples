@@ -1,0 +1,18 @@
+<html>
+	<body>
+		<p id="out"></p>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.21.6/system.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/3.5.3/typescript.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			System.config({
+				transpiler: 'typescript',
+				packages: {
+					'': {
+						defaultExtension: 'ts'
+					}
+				}
+			});
+  			System.import('index');
+    	</script>
+	</body>
+</html>

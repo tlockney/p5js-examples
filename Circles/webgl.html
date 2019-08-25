@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Testing</title>
+<style>
+	html, body { height: 100%; }
+	body {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+setup = () => {
+	createCanvas(500, 500, WEBGL);
+	sphere(100, 24, 24);
+	line(-250,0,250,0);
+	line(0,-250,0,250);
+}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
